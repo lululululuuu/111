@@ -375,13 +375,8 @@ main {
     resize: vertical; /* 允許垂直調整大小 */
 }
 
-.form-group small {
-    font-size: 0.85rem;
-    color: #777;
-    margin-top: 5px;
-    display: block;
-}
-
+/* 移除以下關於圖片上傳預覽和進度條的 CSS 規則 */
+/*
 .form-group input[type="file"] {
     padding: 8px 0;
     border: 1px solid #ddd;
@@ -409,7 +404,7 @@ main {
     background-color: #f3f3f3;
     border-radius: 5px;
     margin-top: 10px;
-    display: none; /* Initially hidden */
+    display: none;
 }
 
 .progress-bar {
@@ -422,6 +417,7 @@ main {
     line-height: 20px;
     font-size: 0.8em;
 }
+*/
 
 
 .btn-submit {
