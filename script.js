@@ -1,5 +1,13 @@
 // Firebase 配置
 // For Firebase JS SDK v7.20.0 and later, measurementld is optional
+// ... (其他現有的 const 變數) ...
+
+const navAbout = document.querySelector('a[href="#about"]');
+const navContact = document.querySelector('a[href="#contact"]');
+const backFromAboutBtn = document.getElementById('backFromAboutBtn');
+const backFromContactBtn = document.getElementById('backFromContactBtn');
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyCIWSLwyUCEkKGz4bne2leVHIbm7EFpObg",
     authDomain: "yuuu-52269.firebaseapp.com",
@@ -16,6 +24,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 // const storage = firebase.storage(); // <-- 移除了 Firebase Storage 的初始化
+
 
 // 頁面元素獲取
 const homePage = document.getElementById('homePage');
@@ -209,6 +218,32 @@ function displayAnimalDetail(animal) {
             </div>
         </div>
     `;
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (現有的 fetchAnimals() 和其他導航連結事件) ...
+
+    // 新增 關於我們 和 聯絡我們 導航連結事件
+    navAbout.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('about'); // 顯示關於我們區塊
+    });
+
+    navContact.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPage('contact'); // 顯示聯絡我們區塊
+    });
+
+    // 新增 返回首頁 按鈕事件 (針對關於我們頁面)
+    backFromAboutBtn.addEventListener('click', () => {
+        showPage('homePage');
+    });
+
+    // 新增 返回首頁 按鈕事件 (針對聯絡我們頁面)
+    backFromContactBtn.addEventListener('click', () => {
+        showPage('homePage');
+    });
+
+    // ... (其他現有的邏輯) ...
+});
 
     // 圖片輪播功能已無必要，因為只有一張預設圖片
     // initImageCarousel();
